@@ -1,14 +1,18 @@
 package com.bensites.java.QuickMath.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class OperatorRegistry {
-	public ArrayList<Operator> Registry = new ArrayList<Operator>();
+	private HashMap<String, Operator> Registry = new HashMap<String, Operator>();
+	public ArrayList<Operator> operators = new ArrayList<Operator>();
 	public Operator register(Operator operator){
-		Registry.add(operator);
+		Registry.put(operator.getOperator, operator);
+		operators.add(operator);
 		return operator;
 	}
-	public Operator[] getOperators(){
-		return null;
+	
+	public Operator getFromString(String operator){
+		return Registry.get(operator);
 	}
 }

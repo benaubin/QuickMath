@@ -3,10 +3,15 @@ import java.util.ArrayList;
 
 public class QuickMath {
 	public static ArrayList<String> params;
-	public static OperatorRegistry registry;
+	public static OperatorRegistry registry = new OperatorRegistry();
 	public static void main(String[] args) {
-		print("Running");
 		params = toArray(args);
+		for (String arg : args)
+			print(arg);
+		print("Running");
+		
+		Operator operation = registry.getFromString(args[1]);
+		operation.doOperation(params);
 	}
 	public static ArrayList<String> toArray(String[] args){
 		ArrayList<String> argsList = new ArrayList<String>();
