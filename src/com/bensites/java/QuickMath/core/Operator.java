@@ -22,5 +22,5 @@ public class Operator{
 	
 	public double doOperation(double left, double right){
 		throw(new java.lang.ClassFormatError("This operator ("+ this.getOperator +") is broken"));
-	};
+	}
 }

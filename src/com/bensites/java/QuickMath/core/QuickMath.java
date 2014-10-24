@@ -1,6 +1,8 @@
 package com.bensites.java.QuickMath.core;
 import java.util.ArrayList;
 
+import com.bensites.java.QuickMath.Operators.RegisterCore;
+
 public class QuickMath {
 	public static ArrayList<String> params;
 	public static OperatorRegistry registry = new OperatorRegistry();
@@ -9,9 +11,10 @@ public class QuickMath {
 		for (String arg : args)
 			print(arg);
 		print("Running");
+		registerOperators();
 		
 		Operator operation = registry.getFromString(args[1]);
-		operation.doOperation(params);
+		print(operation.doOperation(params));
 	}
 	public static ArrayList<String> toArray(String[] args){
 		ArrayList<String> argsList = new ArrayList<String>();
@@ -32,5 +35,8 @@ public class QuickMath {
 			System.out.println();
 			System.out.print(print);
 		}
+	}
+	public static void registerOperators(){
+		RegisterCore.register();
 	}
 }
